@@ -13,11 +13,12 @@ def main():
 
 def calculate_diff(in_date, out_date):
 
-    start_input = in_date.split('/')
-    end_input = out_date.split('/')
-    start = date(int(start_input[2]), int(start_input[1]), int(start_input[0]))
-    end = date(int(end_input[2]), int(end_input[1]), int(end_input[0]))
-    return end - start
+    start_input = list(map(int, in_date.split('/')))
+    end_input = list(map(int, out_date.split('/')))
+    start = date(start_input[2], start_input[1], start_input[0])
+    end = date(end_input[2], end_input[1], end_input[0])
+    diff = end - start
+    return str(diff.days - 1 )
 
 
 
