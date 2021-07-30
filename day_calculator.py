@@ -1,4 +1,4 @@
-import sys, os
+import sys, os, re
 from datetime import date
 
 
@@ -9,6 +9,8 @@ def main():
 
 
 def calculate_diff(in_date, out_date):
+
+
 
     start_input = list(map(int, in_date.split('/')))
     end_input = list(map(int, out_date.split('/')))
@@ -26,8 +28,8 @@ def menu():
     print("What would you like to do? Choose number:\n")
     print("1. Calculate date delta")
     print("2. Help me")
-    print("0. Quit")
-    choice = input(" >>  ")
+    print("0. Quit") 
+    choice =  return_input()
     exec_menu(choice)
 
     return
@@ -48,22 +50,17 @@ def exec_menu(choice):
 
 def calc_delta():
     
-    print("Enter start date! e.g. 2/6/1983 \n")
-    start_date = input(" >>  ")
+    print("Enter start date! e.g. 2/6/1983 or 0 to Quit \n")
+    start_date = return_input()
 
-    if start_date == '0':
-        exec_menu('0')
-
-    
-    print("Enter end date! e.g. 22/6/1983 \n")
-    end_date = input(" >>  ")
+    print("Enter end date! e.g. 22/6/1983 or 0 to Quit \n")
+    end_date = return_input()
     
     print(' There are ' + str(calculate_diff(start_date, end_date)) + ' day between ' + str(start_date) + ' and ' + str(end_date) + '\n' )
-    print("enter new start date or 0 to Quit")
+
     calc_delta()
     
     return
-
 
 def print_help():
     
@@ -84,6 +81,18 @@ menu_actions = {
     '0': exit
 }
 
+def validate_date(input):
+    
+    return re.match(r"[0-9]{1,2}\/[0-1]{1}[0-2]{0,1}\/[1-2]{1}[0-9]{3}", input)
+
+
+def return_input():
+    ui_input = input(" >>  ")
+    
+    if ui_input == '0':
+        exec_menu('0')
+    
+    return ui_input
 
 if __name__ == "__main__":
     main()
