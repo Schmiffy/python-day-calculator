@@ -10,8 +10,6 @@ def main():
 
 def calculate_diff(in_date, out_date):
 
-
-
     start_input = list(map(int, in_date.split('/')))
     end_input = list(map(int, out_date.split('/')))
     start = date(start_input[2], start_input[1], start_input[0])
@@ -49,14 +47,14 @@ def exec_menu(choice):
 
 
 def calc_delta():
-    
+
     print("Enter start date! e.g. 2/6/1983 or 0 to Quit \n")
-    start_date = return_input()
+    start_date = validate_date(return_input())
 
     print("Enter end date! e.g. 22/6/1983 or 0 to Quit \n")
-    end_date = return_input()
+    end_date = validate_date(return_input())
     
-    print(' There are ' + str(calculate_diff(start_date, end_date)) + ' day between ' + str(start_date) + ' and ' + str(end_date) + '\n' )
+    print('There are ' + str(calculate_diff(start_date, end_date)) + ' day between ' + str(start_date) + ' and ' + str(end_date) + '\n' )
 
     calc_delta()
     
@@ -83,7 +81,12 @@ menu_actions = {
 
 def validate_date(input):
     
-    return re.match(r"[0-9]{1,2}\/[0-1]{1}[0-2]{0,1}\/[1-2]{1}[0-9]{3}", input)
+    if re.match(r"[0-9]{1,2}\/[0-1]{0,1}[0-9]{0,1}\/[1-2]{1}[0-9]{3}", input):
+        return input
+    else :
+        print("Date entered in wrong format! e.g. 22/6/1983")
+        return
+
 
 
 def return_input():
