@@ -4,9 +4,9 @@ on: [push]
 
 
 jobs:
-  build-n-publish:
+  test-n-build:
   # should run on linux based operating system
-    name: Unittest
+    name: Unittest and Docker build
     runs-on: ubuntu-18.04
     steps:
       - uses: actions/checkout@master
@@ -16,10 +16,10 @@ jobs:
           python-version: 3.7
       - name: Run UnitTests
         run: python3 -m unittest -q
-      - name: Set up Docker Build
+      - name: Set up Docker
         id: buildx
         uses: docker/setup-buildx-action@v1
-      - name: Build and push
+      - name: Build Docker
         id: docker_build
         uses: docker/build-push-action@v2
         with:
