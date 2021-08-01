@@ -11,3 +11,5 @@ python3 day_calculator.py
 ```
 
 ## Interactive menu
+
+https://user-images.githubusercontent.com/25820758/127765927-cfdaadeb-ae3b-4059-b6b9-f7b8d5be72e3.mov
