@@ -10,10 +10,12 @@ python3 day_calculator.py
 
 To reach the calucation section press 1 in the main menu.
 
-The date has to be provided in the following format: 
+The date has to be provided in the following format DD/MM/YYY(day/month/year): 
 e.g. 01/01/1900, 1/1/2001
 
-If you want to leave this program press 0 anytime during usage of this program.
+Formats like month/day/year are not supported.
+
+If you want to leave this program press 0 anytime during usage of this program
 
 Press enter to get back to the main menu.
 
