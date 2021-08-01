@@ -49,10 +49,18 @@ def exec_menu(choice):
 def calc_delta():
 
     print("Enter start date! e.g. 2/6/1983 or 0 to Quit \n")
-    start_date = validate_date(return_input())
+    try:
+        start_date = validate_date(return_input())
+    except Exception as e: 
+        print('An error occured: '+ str(e))
+        calc_delta()
 
     print("Enter end date! e.g. 22/6/1983 or 0 to Quit \n")
-    end_date = validate_date(return_input())
+    try:
+        end_date = validate_date(return_input())
+    except Exception as e: 
+        print('An error occured: '+ str(e))
+        calc_delta()
     
     print('There are ' + str(calculate_diff(start_date, end_date)) + ' day between ' + str(start_date) + ' and ' + str(end_date) + '\n' )
 
@@ -63,6 +71,7 @@ def calc_delta():
 def print_help():
     
     print("Call someone for help")   
+    
     return
 
 def exit():
@@ -84,8 +93,7 @@ def validate_date(input):
     if re.match(r"[0-9]{1,2}\/[0-1]{0,1}[0-9]{0,1}\/[1-2]{1}[0-9]{3}", input):
         return input
     else :
-        print("Date entered in wrong format! e.g. 22/6/1983")
-        return
+        raise Exception("wrong date input")
 
 
 
