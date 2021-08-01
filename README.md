@@ -41,7 +41,7 @@ docker run -it day-calculator
 ./day_calculator.py
 
 # UnitTest file with all Unittests
-test_day_calculator.py
+./test_day_calculator.py
 
 
 ```
