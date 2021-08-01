@@ -17,10 +17,9 @@ If you want to leave this program press 0 anytime during usage of this program.
 
 Press enter to get back to the main menu.
 
-## Interactive menu
+### Interactive menu
 
 https://user-images.githubusercontent.com/25820758/127765927-cfdaadeb-ae3b-4059-b6b9-f7b8d5be72e3.mov
-
 
 
 ## Use with docker
@@ -31,5 +30,18 @@ docker build -t day-calculator .
 
 # run the image interactively
 docker run -it day-calculator
+
+```
+
+## Technical details
+
+
+```sh
+# main file with all logic
+./day_calculator.py
+
+# UnitTest file with all Unittests
+test_day_calculator.py
+
 
 ```
