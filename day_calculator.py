@@ -3,8 +3,6 @@ from datetime import *
 
 
 def main():
-    # grab the first 2 input parameters and split them
-    # e.g. python3 python-day-calculator.py 2/6/1983 22/6/1983
     menu()
 
 
@@ -33,6 +31,7 @@ def menu():
 
     return
 
+# menu chooser
 def exec_menu(choice):
     os.system('clear')
     ch = choice.lower()
@@ -49,6 +48,9 @@ def exec_menu(choice):
 
 def calc_delta():
 
+    # the actual function, grab all the values and return the days
+    # trying to catch wrong formats 
+    
     print("Enter start date! e.g. 2/6/1983 or 0 to Quit \n")
     try:
         start_date = validate_date(return_input())
@@ -57,13 +59,14 @@ def calc_delta():
         calc_delta()
 
     print("Enter end date! e.g. 22/6/1983 or 0 to Quit \n")
+
     try:
         end_date = validate_date(return_input())
     except Exception as e: 
         print('try again:')
         calc_delta()
     
-    print('There are ' + str(calculate_diff(start_date, end_date)) + ' days between ' + date.strftime(start_date, '%d/%m/%Y') + ' and ' + date.strftime(end_date, '%d/%m/%Y') + '\n' )
+    print('There are ' + str(calculate_diff(start_date, end_date)) + ' days between ' + date.strftime(start_date, '%d/%m/%Y') + ' and ' + date.strftime(end_date,   '%d/%m/%Y') + '\n' )
 
     calc_delta()
     
@@ -102,7 +105,7 @@ def print_help():
 It seems your seeking for help:
 
 This program is to help calculate the days between two dates.
-To reach the calucation section press 1 in the main menue.
+To reach the calucation section press 1 in the main menu.
 If you want to leave this program press 0 anytime during usage of this program.
 
 Press enter to get back to the main menu.
