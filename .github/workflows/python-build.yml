@@ -1,18 +1,18 @@
 name: unittest and docker build
 
-on:
-    push:
-    branches: [ master ]
+on: [push]
+
 
 jobs:
-    build-n-publish:
+  build-n-publish:
+  # should run on linux based operating system
     name: Unittest
     runs-on: ubuntu-18.04
     steps:
-        - uses: actions/checkout@master
-        - name: Initialize Python 3.7
+      - uses: actions/checkout@master
+      - name: Initialize Python 3.7
         uses: actions/setup-python@v1
         with:
-            python-version: 3.7
-        - name: Lint with flake8
+          python-version: 3.7
+      - name: Lint with flake8
         run: python3 -m unittest -q
